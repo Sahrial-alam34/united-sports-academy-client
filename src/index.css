@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Bebas+Neue&family=EB+Garamond&family=Lato:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300&family=Poppins&display=swap');
+
+* {
+  font-family: 'Alkatra', cursive;
+  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'EB Garamond', serif;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
