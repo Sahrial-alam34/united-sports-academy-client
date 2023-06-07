@@ -12,3 +12,18 @@
   font-family: 'Montserrat', sans-serif;
   font-family: 'Poppins', sans-serif;
 }
+
+
+/* .my-container{
+  @apply px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-6
+} */
+
+
+
+.active{
+  @apply font-medium tracking-wide text-teal-400 transition-colors duration-200 hover:text-blue-400
+}
+
+.default{
+  @apply font-medium tracking-wide text-white transition-colors duration-200 hover:text-blue-400
+}

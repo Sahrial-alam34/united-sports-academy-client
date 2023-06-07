@@ -21,7 +21,7 @@ const Banner = () => {
                             <h2 className='text-2xl lg:text-6xl font-bold'>Welcome To Best Sports Academy</h2>
                             <p>There are many variations sports event occurred. So join us and try to keep fit</p>
                             <div>
-                                <button className='btn btn-primary mr-5'>Discover More</button>
+                                
                                 <button className='btn btn-outline btn-success'>Registration</button>
                             </div>
                         </div>
@@ -39,7 +39,7 @@ const Banner = () => {
                             <h2 className='text-2xl lg:text-6xl font-bold'>Welcome To Best Sports Academy</h2>
                             <p>There are many variations sports event occurred. So join us and try to keep fit</p>
                             <div>
-                                <button className='btn btn-primary mr-5'>Discover More</button>
+                                
                                 <button className='btn btn-outline btn-success'>Latest Cars</button>
                             </div>
                         </div>
@@ -57,7 +57,7 @@ const Banner = () => {
                             <h2 className='text-2xl lg:text-6xl font-bold'>Welcome To Best Sports Academy</h2>
                             <p>There are many variations sports event occurred. So join us and try to keep fit</p>
                             <div>
-                                <button className='btn btn-primary mr-5'>Discover More</button>
+                                
                                 <button className='btn btn-outline btn-success'>Latest Cars</button>
                             </div>
                         </div>
@@ -75,7 +75,7 @@ const Banner = () => {
                             <h2 className='text-2xl lg:text-6xl font-bold'>Welcome To Best Sports Academy</h2>
                             <p>There are many variations sports event occurred. So join us and try to keep fit</p>
                             <div>
-                                <button className='btn btn-primary mr-5'>Discover More</button>
+                                
                                 <button className='btn btn-outline btn-success'>Latest Cars</button>
                             </div>
                         </div>

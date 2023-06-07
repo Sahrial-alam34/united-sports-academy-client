@@ -1,10 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/logo/unitedlogo.jpg'
 const Navbar = () => {
     const navOptions = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/menu'>Our Menu</Link></li>
-        <li><Link to='/order/salad'>Order Food</Link></li>
+        <li className="uppercase"><NavLink 
+        to='/' className={({ isActive }) => (isActive ? 'active' : 'default')}
+        >Home</NavLink></li>
+        <li className="uppercase"><NavLink 
+        to='/register' 
+        className={({ isActive }) => (isActive ? 'active' : 'default')}
+        >Register</NavLink></li>
+        <li className="uppercase"><NavLink 
+        to='/login' 
+        className={({ isActive }) => (isActive ? 'active' : 'default')}
+        >Login</NavLink></li>
 
         <li>
             <Link to="/dashboard/mycart">
