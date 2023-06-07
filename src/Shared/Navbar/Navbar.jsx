@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
+    console.log('user bav', user)
     const handleLogOut = () => {
         logOut()
         //console.log('clicked');
@@ -17,10 +18,7 @@ const Navbar = () => {
             to='/register'
             className={({ isActive }) => (isActive ? 'active' : 'default')}
         >Register</NavLink></li>
-        <li className="uppercase"><NavLink
-            to='/login'
-            className={({ isActive }) => (isActive ? 'active' : 'default')}
-        >Login</NavLink></li>
+       
 
         {/* <li>
             <Link to="/dashboard/mycart">
@@ -62,7 +60,9 @@ const Navbar = () => {
 
                              " data-tip={user.displayName}>
                         <button className="mt-2 h-10 w-10  rounded-full bg-gray-300">
-                            <img className="rounded-full h-full w-full" src={user.photoURL} alt={user.displayName} />
+                            <img className="rounded-full h-full w-full"
+                            referrerPolicy="no-referrer"
+                             src={user.photoURL} alt={user.displayName} />
                         </button>
                     </div>
                     {/* <div className="absolute bottom-0 left-0 transform translate-y-full -translate-x-1/2">
@@ -78,7 +78,7 @@ const Navbar = () => {
                             onClick={handleLogOut}
                             className={({ isActive }) => (isActive ? 'active' : 'default')}
                         >
-                            LOGOUT
+                            logout
                         </button>
                     </NavLink>
                 </li>
@@ -127,8 +127,8 @@ const Navbar = () => {
                     </div>
                     <Link
                         to='/'
-                        aria-label='HouseOfToyCars'
-                        title='HouseOfToyCars'
+                        aria-label='unitedSport'
+                        title='unitedSport'
                         className='inline-flex items-center'
                     >
                         <div className='flex items-center justify-center w-12 h-12 rounded-full'>

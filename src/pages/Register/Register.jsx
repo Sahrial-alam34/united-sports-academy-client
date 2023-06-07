@@ -10,21 +10,22 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
     const [type, setType] = useState("password")
-   
+
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const {createUser} = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext)
     const onSubmit = data => {
         console.log(data)
-        if(data.password === data.confirmPassword){
-            createUser(data.email,data.password)
+        createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
             })
-        }
-     
+        // if(data.password === data.confirmPassword){
+
+        // }
+
     };
-  
+
     return (
         <>
             <Helmet>
@@ -50,6 +51,11 @@ const Register = () => {
                                 </label>
                                 <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered" />
                                 {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
+                                {/* <label htmlFor='image' className='block mb-2 text-sm'>
+                                    Select Image:
+                                </label>
+                                <input type="file"  {...register("photoURL", { required: true })} placeholder="Photo URL" />
+                                {errors.photoURL && <span className="text-red-600">Photo URL is required</span>} */}
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -104,9 +110,9 @@ const Register = () => {
                                         maxLength: 20,
                                         pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/
                                     })} placeholder="confirm password" className="input input-bordered w-full " />
-                                        {errors.confirmPassword?.type === 'required' && <p className="text-red-600">Confirm Password is required</p>}
-                                    
-                                        {errors.confirmPassword !== errors.password && <p className="text-red-600">Password does not match</p>}
+                                    {errors.confirmPassword?.type === 'required' && <p className="text-red-600">Confirm Password is required</p>}
+
+                                    {errors.confirmPassword !== errors.password && <p className="text-red-600">Password does not match</p>}
                                     <span className='forget-password-toggle-icon'>
                                         {
                                             type === 'password' ? (
@@ -128,7 +134,7 @@ const Register = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
-                   
+
 
                             <div className="form-control mt-3">
                                 <button className='w-full text-white font-semibold my-2 bg-[#060606] rounded-md p-4 text-center flex items-center justify-center cursor-pointer'>Register </button>
