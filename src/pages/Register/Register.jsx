@@ -7,17 +7,22 @@ import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { useContext, useState } from 'react';
 import './Register.css'
 import { AuthContext } from '../../providers/AuthProvider';
+
 const Register = () => {
     const [type, setType] = useState("password")
+   
     const { register, handleSubmit, formState: { errors } } = useForm();
     const {createUser} = useContext(AuthContext)
     const onSubmit = data => {
         console.log(data)
-        createUser(data.email,data.password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser)
-        })
+        if(data.password === data.confirmPassword){
+            createUser(data.email,data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+            })
+        }
+     
     };
   
     return (
@@ -100,6 +105,8 @@ const Register = () => {
                                         pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/
                                     })} placeholder="confirm password" className="input input-bordered w-full " />
                                         {errors.confirmPassword?.type === 'required' && <p className="text-red-600">Confirm Password is required</p>}
+                                    
+                                        {errors.confirmPassword !== errors.password && <p className="text-red-600">Password does not match</p>}
                                     <span className='forget-password-toggle-icon'>
                                         {
                                             type === 'password' ? (
