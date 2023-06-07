@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+
 import SectionTitle from "../../../components/SectionTitle";
 import InstructorDetails from "../../../Shared/InstructorDetails/InstructorDetails";
 import useInstructor from "../../../hooks/useInstructor";
@@ -25,7 +25,7 @@ const PopularInstructor = () => {
                     {
                         instructors.map(instructor =>
 
-                            <InstructorDetails key={instructor.id} instructor={instructor}></InstructorDetails>
+                            <InstructorDetails key={instructor._id} instructor={instructor}></InstructorDetails>
                         )
                     }
 
