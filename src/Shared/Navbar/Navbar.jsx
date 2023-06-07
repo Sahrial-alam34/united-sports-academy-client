@@ -15,9 +15,13 @@ const Navbar = () => {
             to='/' className={({ isActive }) => (isActive ? 'active' : 'default')}
         >Home</NavLink></li>
         <li className="uppercase"><NavLink
-            to='/register'
+            to='/instructor'
             className={({ isActive }) => (isActive ? 'active' : 'default')}
-        >Register</NavLink></li>
+        >Instructor</NavLink></li>
+        <li className="uppercase"><NavLink
+            to='/classes'
+            className={({ isActive }) => (isActive ? 'active' : 'default')}
+        >Classes</NavLink></li>
        
 
         {/* <li>

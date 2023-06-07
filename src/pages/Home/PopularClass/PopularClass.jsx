@@ -22,7 +22,7 @@ const PopularClass = () => {
     },[])
     
     return (
-        <section>
+        <section className="mt-20">
             <SectionTitle subHeading={"Top Classes"} heading={"Most Popular Classes In the Academy"}></SectionTitle>
             <Swiper
                 effect={"coverflow"}

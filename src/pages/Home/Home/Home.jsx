@@ -3,6 +3,7 @@ import Banner from "./Banner/Banner";
 import PopularClass from "../PopularClass/PopularClass";
 import PopularInstructor from "../PopularInstructor/PopularInstructor";
 import Facility from "../Facility/Facility";
+import Cover from "../../../Shared/Cover/Cover";
 
 
 
@@ -17,6 +18,7 @@ const Home = () => {
             <PopularClass></PopularClass>
             <PopularInstructor></PopularInstructor>
             <Facility></Facility>
+            <Cover></Cover>
         </div>
     );
 };
