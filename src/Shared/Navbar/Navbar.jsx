@@ -1,38 +1,116 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/logo/unitedlogo.jpg'
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
+    const handleLogOut = () => {
+        logOut()
+        //console.log('clicked');
+
+    }
     const navOptions = <>
-        <li className="uppercase"><NavLink 
-        to='/' className={({ isActive }) => (isActive ? 'active' : 'default')}
+        <li className="uppercase"><NavLink
+            to='/' className={({ isActive }) => (isActive ? 'active' : 'default')}
         >Home</NavLink></li>
-        <li className="uppercase"><NavLink 
-        to='/register' 
-        className={({ isActive }) => (isActive ? 'active' : 'default')}
+        <li className="uppercase"><NavLink
+            to='/register'
+            className={({ isActive }) => (isActive ? 'active' : 'default')}
         >Register</NavLink></li>
-        <li className="uppercase"><NavLink 
-        to='/login' 
-        className={({ isActive }) => (isActive ? 'active' : 'default')}
+        <li className="uppercase"><NavLink
+            to='/login'
+            className={({ isActive }) => (isActive ? 'active' : 'default')}
         >Login</NavLink></li>
 
-        <li>
+        {/* <li>
             <Link to="/dashboard/mycart">
                 <button className="btn gap-2">
 
                 </button>
             </Link>
-        </li>
+        </li> */}
 
-        {/* {
-        user ? <>
-            <span>{user?.displayName}</span>
-            <button onClick={handleLogOut} className="btn btn-active btn-ghost">LogOut</button>
-        </> :
-            <>
-                <li><Link to='/login'>login</Link></li>
-                <li><Link to='/signup'>SignUp</Link></li>
+        {
+            user ? <div className=' hidden space-x-8 lg:flex '>
 
-            </>
-    } */}
+
+                <div>
+                    <div className="
+                            relative 
+                            before:content-[attr(data-tip)]
+                            before:px-3 before:py-2;
+                            before:left-10 before:top-0
+                            before:w-max before:max-w-xs
+                            before:-translate-x-1/2 before:-translate-y-full
+                            before:bg-gray-700 before:text-white
+                            before:rounded-md before:opacity-0
+                            before:transition-all
+
+                            after:absolute
+                            after:left-1/2 after:top-0
+                            after:h-0 after:w-0
+                            after:-translate-x-1/2 after:border-8
+                            after:border-t-gray-700
+                            after:border-l-transparent
+                            after:border-b-transparent
+                            after:border-r-transparent
+                            after:opacity-0
+                            after:transition-all 
+ 
+                            hover:before:opacity-100 
+
+
+                             " data-tip={user.displayName}>
+                        <button className="mt-2 h-10 w-10  rounded-full bg-gray-300">
+                            <img className="rounded-full h-full w-full" src={user.photoURL} alt={user.displayName} />
+                        </button>
+                    </div>
+                    {/* <div className="absolute bottom-0 left-0 transform translate-y-full -translate-x-1/2">
+                                <div className="py-2 px-4 bg-gray-800 text-white rounded text-center">
+                                    {user.displayName}
+                                </div>
+                            </div> */}
+
+                </div>
+                <li className="uppercase">
+                    <NavLink className='mt-2'>
+                        <button
+                            onClick={handleLogOut}
+                            className={({ isActive }) => (isActive ? 'active' : 'default')}
+                        >
+                            LOGOUT
+                        </button>
+                    </NavLink>
+                </li>
+
+            </div> :
+                <div className='hidden space-x-8 lg:flex gap-0'>
+
+                <li className="uppercase">
+                <NavLink
+                        to='/login'
+                        aria-label='Login'
+                        title='Login'
+                        className={({ isActive }) => (isActive ? 'active' : 'default')}
+                    >
+                        login
+                    </NavLink>
+                </li>
+
+                <li className="uppercase">
+                <NavLink
+                        to='/register'
+                        aria-label='Register'
+                        title='Register'
+                        className={({ isActive }) => (isActive ? 'active' : 'default')}
+                    >
+                        register
+                    </NavLink>
+                </li>
+
+                </div>
+        }
+
 
     </>
     return (
