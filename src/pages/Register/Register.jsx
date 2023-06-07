@@ -2,27 +2,46 @@ import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import registerImg from '../../assets/register/register.jpg'
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { useContext, useState } from 'react';
 import './Register.css'
 import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const [type, setType] = useState("password")
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser } = useContext(AuthContext)
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { createUser, updateUserProfile, logOut } = useContext(AuthContext)
+    const navigate = useNavigate();
     const onSubmit = data => {
         console.log(data)
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser)
-            })
-        // if(data.password === data.confirmPassword){
+                console.log(loggedUser);
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        
+                            reset();
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'User created successfully.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            logOut()
+                            .then(()=>{
+                                navigate('/login')
+                            })
+                        
 
-        // }
+                    })
+                    .catch(error => console.log(error))
+            })
+
 
     };
 

@@ -4,39 +4,43 @@ import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 
 import registerImg from '../../assets/register/register.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 
+
 const Login = () => {
     const { signIn } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from =  location.state?.from?.pathname || '/';
     const onSubmit = data => {
         console.log(data);
-        signIn(data.email,data.password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser)
-            Swal.fire({
-                title: 'User Login Successful',
-                showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                }
-            })
-            // navigate(from, { replace: true });
+        signIn(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+                Swal.fire({
+                    title: 'User Login Successful',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                })
+                 navigate(from, { replace: true });
 
-        })
-       .catch(error => {
-            console.log(error);
-            // setError('Email and Password does not match ');
-            // setError(error.message)
-            // setSuccess('')
-        })
+            })
+            .catch(error => {
+                console.log(error);
+                // setError('Email and Password does not match ');
+                // setError(error.message)
+                // setSuccess('')
+            })
     };
     return (
         <>

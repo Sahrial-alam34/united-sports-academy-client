@@ -38,7 +38,7 @@ import Classes from "../pages/Classes/Classes";
           element:<Classes></Classes>
         },
         {
-          path:'secret',
+          path:'/secret',
           element:<PrivateRoute><Secret></Secret></PrivateRoute>
         }
      

@@ -18,7 +18,7 @@ const Home = () => {
             <PopularClass></PopularClass>
             <PopularInstructor></PopularInstructor>
             <Facility></Facility>
-            <Cover></Cover>
+            
         </div>
     );
 };

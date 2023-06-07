@@ -22,6 +22,10 @@ const Navbar = () => {
             to='/classes'
             className={({ isActive }) => (isActive ? 'active' : 'default')}
         >Classes</NavLink></li>
+        <li className="uppercase"><NavLink
+            to='/secret'
+            className={({ isActive }) => (isActive ? 'active' : 'default')}
+        >Secret</NavLink></li>
        
 
         {/* <li>
@@ -77,12 +81,12 @@ const Navbar = () => {
 
                 </div>
                 <li className="uppercase">
-                    <NavLink className='mt-2'>
+                    <NavLink className='mt-2 uppercase'>
                         <button
                             onClick={handleLogOut}
                             className={({ isActive }) => (isActive ? 'active' : 'default')}
                         >
-                            logout
+                            LOGOUT
                         </button>
                     </NavLink>
                 </li>

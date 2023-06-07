@@ -4,6 +4,10 @@ import googleIcon from '../../assets/google/icons8-google.svg'
 import { AuthContext } from '../../providers/AuthProvider';
 const SocialLogin = () => {
     const { googleSignIn } = useContext(AuthContext);
+    // const navigate = useNavigate();
+    // const location = useLocation();
+
+    // const from = location.state?.from?.pathname || "/";
     const handleGoogleSignIn = () => {
         googleSignIn()
             .then(result => {
