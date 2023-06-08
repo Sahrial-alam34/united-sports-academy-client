@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Cover from "../../Shared/Cover/Cover";
 
-import img1 from '../../assets/banner/banner3.jpg'
+import img1 from '../../assets/banner/banner1.jpg'
 import useInstructor from "../../hooks/useInstructor";
 import InstructorDetails from "../../Shared/InstructorDetails/InstructorDetails";
 

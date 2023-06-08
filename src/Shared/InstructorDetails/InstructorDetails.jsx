@@ -1,7 +1,7 @@
 
 //import img1 from '../../assets/instructor/image1.jpg'
 const InstructorDetails = ({ instructor }) => {
-    console.log('ins', instructor.picture)
+    //console.log('ins', instructor.picture)
     const { picture, name, title, email } = instructor
     return (
 
