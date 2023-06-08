@@ -9,11 +9,11 @@ const SingleClass = ({ cla }) => {
     const [,refetch] = useCart();
     const navigate = useNavigate();
     const location = useLocation();
-    const { picture, title, instructorName, availableSeat, students, _id } = cla;
+    const { picture, title, instructorName, availableSeat, students, _id, Price } = cla;
     const handleAddToCart = item => {
         console.log('item', item)
         if (user && user.email) {
-            const cartItem = {classId:_id,title, instructorName, availableSeat, students,email: user.email }
+            const cartItem = {classId:_id,title, instructorName, availableSeat, students, picture, Price,email: user.email }
             fetch('http://localhost:5000/carts',{
                 method:"POST",
                 headers: {
