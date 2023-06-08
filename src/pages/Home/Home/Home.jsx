@@ -3,8 +3,7 @@ import Banner from "./Banner/Banner";
 import PopularClass from "../PopularClass/PopularClass";
 import PopularInstructor from "../PopularInstructor/PopularInstructor";
 import Facility from "../Facility/Facility";
-import Cover from "../../../Shared/Cover/Cover";
-import Loader from "../../../components/Loader/Loader";
+
 
 
 
