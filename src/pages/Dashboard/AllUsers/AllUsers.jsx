@@ -15,15 +15,15 @@ const AllUsers = () => {
     // const admin = 'admin';
     // const instructor = 'instructor';
     const handleMakeAdmin = user => {
-        const role =  { role: "admin" };
+        const role = { role: "admin" };
         //console.log('roleadmin', role)
 
 
         fetch(`http://localhost:5000/users/admin/${user._id}`,
             {
                 method: 'PATCH',
-                headers:{
-                    'content-type':'application/json'
+                headers: {
+                    'content-type': 'application/json'
                 },
                 body: JSON.stringify(role)
             })
@@ -44,13 +44,13 @@ const AllUsers = () => {
     }
     const handleMakeInstructor = user => {
 
-        const role =  { role: "instructor" };
+        const role = { role: "instructor" };
         //console.log('roleinstructor', role)
         fetch(`http://localhost:5000/users/admin/${user._id}`,
             {
                 method: 'PATCH',
-                headers:{
-                    'content-type':'application/json'
+                headers: {
+                    'content-type': 'application/json'
                 },
                 body: JSON.stringify(role)
             })
@@ -71,7 +71,33 @@ const AllUsers = () => {
     }
 
     const handleDelete = user => {
-
+        // console.log(item);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/users/${user._id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your Class has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
     }
     return (
         <div className="w-full">
