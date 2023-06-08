@@ -54,7 +54,7 @@ const MyCart = () => {
                 <table className="table w-full bg-gray-300">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className="bg-purple-500 text-white">
                             <th> # </th>
                             <th>Class Name</th>
                             <th>Instructor Name</th>
