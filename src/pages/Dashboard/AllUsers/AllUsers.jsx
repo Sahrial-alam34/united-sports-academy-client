@@ -2,20 +2,30 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaTrashAlt, FaUserShield } from "react-icons/fa";
+import { MdSports } from "react-icons/md";
 import Swal from "sweetalert2";
 
 const AllUsers = () => {
 
- //   const [role, setRole] = useState('user');
-    const { data: users = [] ,refetch} = useQuery(['users'], async () => {
+
+    const { data: users = [], refetch } = useQuery(['users'], async () => {
         const res = await fetch('http://localhost:5000/users')
         return res.json()
     })
-
+    // const admin = 'admin';
+    // const instructor = 'instructor';
     const handleMakeAdmin = user => {
+        const role =  { role: "admin" };
+        //console.log('roleadmin', role)
+
+
         fetch(`http://localhost:5000/users/admin/${user._id}`,
             {
-                method: 'PATCH'
+                method: 'PATCH',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body: JSON.stringify(role)
             })
             .then(res => res.json())
             .then(data => {
@@ -26,6 +36,33 @@ const AllUsers = () => {
                         position: 'top-end',
                         icon: 'success',
                         title: `${user.name} is an Admin Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+    const handleMakeInstructor = user => {
+
+        const role =  { role: "instructor" };
+        //console.log('roleinstructor', role)
+        fetch(`http://localhost:5000/users/admin/${user._id}`,
+            {
+                method: 'PATCH',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body: JSON.stringify(role)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is an Instructor Now!`,
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -61,10 +98,13 @@ const AllUsers = () => {
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>{user.role === 'admin' ? 'admin' :
-                                    
-                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-600  text-white"><FaUserShield></FaUserShield></button>
-                                }</td>
+                                <td>{user.role === 'admin' ? ('Admin') : user.role === 'instructor' ? ('Instructor') : (
+
+                                    <div>
+                                        <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-600  text-white"><FaUserShield></FaUserShield><p>admin</p></button>
+                                        <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost ml-2 bg-yellow-600  text-white"><MdSports></MdSports><p>instructor</p></button>
+                                    </div>
+                                )}</td>
                                 <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
 
 
