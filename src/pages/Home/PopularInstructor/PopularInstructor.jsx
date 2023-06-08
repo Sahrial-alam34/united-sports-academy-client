@@ -23,7 +23,7 @@ const PopularInstructor = () => {
             <div className="flex min-h-screen items-center justify-center bg-stone-400">
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
                     {
-                        instructors.map(instructor =>
+                        instructors.slice(0,6).map(instructor =>
 
                             <InstructorDetails key={instructor._id} instructor={instructor}></InstructorDetails>
                         )

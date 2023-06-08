@@ -6,13 +6,14 @@ import { useForm } from 'react-hook-form';
 import registerImg from '../../assets/register/register.jpg'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 
 
 const Login = () => {
     const { signIn } = useContext(AuthContext)
+    const [error, setError] = useState('');
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
@@ -23,6 +24,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
+                setError('')
                 Swal.fire({
                     title: 'User Login Successful',
                     showClass: {
@@ -37,9 +39,9 @@ const Login = () => {
             })
             .catch(error => {
                 console.log(error);
-                // setError('Email and Password does not match ');
-                // setError(error.message)
-                // setSuccess('')
+                //setError('Email and Password does not match ');
+                setError(error.message)
+                
             })
     };
     return (
@@ -81,6 +83,7 @@ const Login = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
+                            <p className='text-red-600'>{error}</p>
                             <div className="form-control mt-3">
                                 <button className='w-full text-white font-semibold my-2 bg-[#060606] rounded-md p-4 text-center flex items-center justify-center cursor-pointer'>Login </button>
                             </div>

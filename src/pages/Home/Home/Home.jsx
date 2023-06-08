@@ -4,6 +4,7 @@ import PopularClass from "../PopularClass/PopularClass";
 import PopularInstructor from "../PopularInstructor/PopularInstructor";
 import Facility from "../Facility/Facility";
 import Cover from "../../../Shared/Cover/Cover";
+import Loader from "../../../components/Loader/Loader";
 
 
 
@@ -18,6 +19,7 @@ const Home = () => {
             <PopularClass></PopularClass>
             <PopularInstructor></PopularInstructor>
             <Facility></Facility>
+            {/* <Loader></Loader> */}
             
         </div>
     );
