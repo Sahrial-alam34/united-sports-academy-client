@@ -7,7 +7,7 @@ import "./PopularClass.css";
 import { EffectCoverflow, Pagination } from "swiper";
 import useClasses from "../../../hooks/useClasses";
 import SectionTitle from "../../../components/SectionTitle";
-import {  useState } from "react";
+
 
 //import img1 from '../../../assets/class/cricket.jpg'
 
@@ -39,7 +39,7 @@ const PopularClass = () => {
                 className="mySwiper"
             >
                 { sortedArray.slice(0,6).map(cla=><>
-                    <SwiperSlide>
+                    <SwiperSlide key={cla._id}>
                             <img className="h-[300px] w-[300px]" src={cla.picture} />
                             <h3 className="text-4xl text-white uppercase text-center -mt-12">{cla.title}</h3>
                         </SwiperSlide>
