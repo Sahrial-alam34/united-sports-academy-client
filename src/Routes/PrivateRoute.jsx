@@ -6,9 +6,9 @@ import Loader from "../components/Loader/Loader";
 
 const PrivateRoute = ({children}) => {
     const { user, loading } = useContext(AuthContext);
-    console.log('dfd 8',user);
+    //console.log('dfd 8',user);
     const location = useLocation();
-    console.log('locaca 10', location)
+    //console.log('locaca 10', location)
     // if (loading) {
     //     return <div className='flex justify-center items-center h-[calc(100vh-68px)]'>
     //         <p className='text-7xl font-thin'>L</p>

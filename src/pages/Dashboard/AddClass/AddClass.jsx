@@ -27,6 +27,7 @@ const AddClass = () => {
     }, [setValue, user?.email]);
 
     const onSubmit = (data) => {
+        
 
         fetch("http://localhost:5000/addClass", {
             method: "POST",
