@@ -6,7 +6,6 @@ import Main from "../Layout/Main";
 import Home from "../pages/Home/Home/Home";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
-import Secret from "../Shared/Secret/Secret";
 import PrivateRoute from "./PrivateRoute";
 import Instructor from "../pages/Instructor/Instructor";
 import Classes from "../pages/Classes/Classes";
@@ -16,6 +15,7 @@ import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import InstructorHome from "../pages/Dashboard/InstructorHome/InstructorHome";
+import AddClass from "../pages/Dashboard/AddClass/AddClass";
 
   const router = createBrowserRouter([
     {
@@ -71,7 +71,11 @@ import InstructorHome from "../pages/Dashboard/InstructorHome/InstructorHome";
       {
         path:'manageUsers',
         element:<AllUsers></AllUsers>
-      }
+      },
+      {
+        path:'addClass',
+        element:<AddClass></AddClass>
+      },
      ]  
     }
   ]);

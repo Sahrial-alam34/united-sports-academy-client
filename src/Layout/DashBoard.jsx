@@ -5,7 +5,7 @@ import { GiTeacher } from 'react-icons/gi';
 import useCart from "../hooks/useCart";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
-import { MdLibraryAdd } from "react-icons/md";
+
 
 
 const DashBoard = () => {
@@ -50,31 +50,31 @@ const DashBoard = () => {
 
                             </li> */}
                         </>)
-                         : 
-                        role === 'instructor' ? (<>
-                            <li className="text-white uppercase"><NavLink to="/dashboard/instructorHome"><FaHome></FaHome> Instructor Home</NavLink></li>
-                            <li className="text-white uppercase" ><NavLink to="/dashboard/instructorAddClass"><MdLibraryAdd></MdLibraryAdd> Add a Class</NavLink></li>
-                            <li className="text-white uppercase"><NavLink to="/dashboard/instructorMyClass"><SiGoogleclassroom></SiGoogleclassroom> My Classes</NavLink></li>
-                            {/* <li className="text-white">
+                            :
+                            role === 'instructor' ? (<>
+                                <li className="text-white uppercase"><NavLink to="/dashboard/instructorHome"><FaHome></FaHome> Instructor Home</NavLink></li>
+                                <li className="text-white uppercase"><NavLink to="/dashboard/addClass"> <SiGoogleclassroom></SiGoogleclassroom> Add a Class</NavLink></li>
+                                <li className="text-white uppercase"><NavLink to="/dashboard/instructorMyClass"><SiGoogleclassroom></SiGoogleclassroom> My Classes</NavLink></li>
+                                {/* <li className="text-white">
                                 <NavLink to="/dashboard/myCart"><FaShoppingCart></FaShoppingCart> My Cart
                                     <span className="badge inline badge-secondary">+{cart?.length || 0}</span>
                                 </NavLink>
 
                             </li> */}
-                     
-                        </>)
-                         : 
-                        (<>
-                            <li className="text-white uppercase"><NavLink to="/dashboard/userHome"><FaHome></FaHome> User Home</NavLink></li>
-                            <li className="text-white uppercase" ><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
-                            <li className="text-white uppercase"><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
-                            <li className="text-white">
-                                <NavLink to="/dashboard/myCart"><FaShoppingCart></FaShoppingCart> My Cart
-                                    <span className="badge inline badge-secondary">+{cart?.length || 0}</span>
-                                </NavLink>
 
-                            </li>
-                        </>)
+                            </>)
+                                :
+                                (<>
+                                    <li className="text-white uppercase"><NavLink to="/dashboard/userHome"><FaHome></FaHome> User Home</NavLink></li>
+                                    <li className="text-white uppercase" ><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
+                                    <li className="text-white uppercase"><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
+                                    <li className="text-white">
+                                        <NavLink to="/dashboard/myCart"><FaShoppingCart></FaShoppingCart> My Cart
+                                            <span className="badge inline badge-secondary">+{cart?.length || 0}</span>
+                                        </NavLink>
+
+                                    </li>
+                                </>)
                     }
                     {/* Sidebar content here */}
 

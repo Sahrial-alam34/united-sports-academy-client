@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/logo/unitedlogo.jpg'
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { FaShoppingCart, FaUserShield } from "react-icons/fa";
+import { FaShoppingCart, FaUser, FaUserShield } from "react-icons/fa";
 import useCart from "../../hooks/useCart";
 import { MdSports } from "react-icons/md";
 const Navbar = () => {
@@ -53,8 +53,8 @@ const Navbar = () => {
                     (<>
                         <li className="text-white uppercase">
 
-                            <NavLink to="/dashboard/userHome"><FaShoppingCart></FaShoppingCart> My Cart
-                                <span className="badge inline badge-secondary">+{cart?.length || 0}</span>
+                            <NavLink to="/dashboard/userHome"><FaUser></FaUser> User Panel
+                              
                             </NavLink>
                         </li>
 
