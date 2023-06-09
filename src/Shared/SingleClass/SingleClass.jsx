@@ -5,19 +5,20 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 
 const SingleClass = ({ cla }) => {
-    const { user } = useContext(AuthContext);
-    const [,refetch] = useCart();
+    const { user, role } = useContext(AuthContext);
+
+    const [, refetch] = useCart();
     const navigate = useNavigate();
     const location = useLocation();
     const { picture, title, instructorName, availableSeat, students, _id, Price } = cla;
     const handleAddToCart = item => {
         console.log('item', item)
         if (user && user.email) {
-            const cartItem = {classId:_id,title, instructorName, availableSeat, students, picture, Price,email: user.email }
-            fetch('http://localhost:5000/carts',{
-                method:"POST",
+            const cartItem = { classId: _id, title, instructorName, availableSeat, students, picture, Price, email: user.email }
+            fetch('http://localhost:5000/carts', {
+                method: "POST",
                 headers: {
-                    'content-type':'application/json'
+                    'content-type': 'application/json'
                 },
                 body: JSON.stringify(cartItem)
             })
@@ -62,7 +63,27 @@ const SingleClass = ({ cla }) => {
                     <p>Seats Available: {availableSeat}</p>
                     <p>Total Students:{students}</p>
                 </div>
-                <button onClick={() => handleAddToCart(cla)} className="rounded-full btn btn-outline bg-slate-200 text-[#BB8506] border-0 border-b-4 mt-4 hover:text-[#BB8506]">Selected The Course</button>
+                {
+                    role === 'admin' ? (<>
+
+                        <button onClick={() => handleAddToCart(cla)} className="rounded-full btn btn-outline bg-slate-200 text-[#BB8506] border-0 border-b-4 mt-4 hover:text-[#BB8506]" disabled>Selected The Course</button>
+                    </>)
+                        :
+                        role === 'instructor' ? (<>
+
+                            <button onClick={() => handleAddToCart(cla)} className="rounded-full btn btn-outline bg-slate-200 text-[#BB8506] border-0 border-b-4 mt-4 hover:text-[#BB8506]" disabled>Selected The Course</button>
+
+
+
+                        </>)
+                            :
+                            (<>
+                                <button onClick={() => handleAddToCart(cla)} className="rounded-full btn btn-outline bg-slate-200 text-[#BB8506] border-0 border-b-4 mt-4 hover:text-[#BB8506]">Selected The Course</button>
+
+                            </>)
+                }
+
+
             </div>
         </div>
     );

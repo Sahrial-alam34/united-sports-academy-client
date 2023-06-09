@@ -50,6 +50,7 @@ const Navbar = () => {
 
                 </>)
                     :
+                    user &&
                     (<>
                         <li className="text-white uppercase">
 
