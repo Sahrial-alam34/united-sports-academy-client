@@ -50,11 +50,11 @@ import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
      element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
      children:[
       {
-        path:'mycart',
+        path:'myCart',
         element:<MyCart></MyCart>
       },
       {
-        path:'allusers',
+        path:'manageUsers',
         element:<AllUsers></AllUsers>
       }
      ]  

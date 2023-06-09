@@ -1,10 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaBook, FaUsers } from 'react-icons/fa';
-import { SiGoogleclassroom } from 'react-icons/si';
+import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaUsers } from 'react-icons/fa';
+import { SiGoogleclassroom, SiGoogletagmanager } from 'react-icons/si';
 import { GiTeacher } from 'react-icons/gi';
 import useCart from "../hooks/useCart";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import { MdLibraryAdd } from "react-icons/md";
 
 
 const DashBoard = () => {
@@ -35,36 +36,40 @@ const DashBoard = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-gradient-to-r from-purple-500 to-purple-600 text-base-content ">
 
-                    {
-
-                        <>
-
-                        </>
-                    }
 
                     {
                         role === 'admin' ? (<>
-                            <li className="text-white uppercase"><NavLink to="/dashboard/adminhome"><FaHome></FaHome> Admin Home</NavLink></li>
+                            <li className="text-white uppercase"><NavLink to="/dashboard/adminHome"><FaHome></FaHome> Admin Home</NavLink></li>
                             <li className="text-white uppercase"><NavLink to="/dashboard/addItem"> <SiGoogleclassroom></SiGoogleclassroom> Add a Class</NavLink></li>
-                            <li className="text-white uppercase"><NavLink to="/dashboard/manageitems"><FaWallet></FaWallet> Manage Classes</NavLink></li>
-                            <li className="text-white uppercase"><NavLink to="/dashboard/history"><FaBook></FaBook> Manage Bookings</NavLink></li>
-                            <li className="text-white uppercase"><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> All Users</NavLink></li>
-                        </>) : role === 'instructor' ? (<>
-                            <li className="text-white uppercase"><NavLink to="/dashboard/userhome"><FaHome></FaHome> Instructor Home</NavLink></li>
-                            <li className="text-white uppercase" ><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Add Item</NavLink></li>
-                            <li className="text-white uppercase"><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
+                            <li className="text-white uppercase"><NavLink to="/dashboard/adminManageClasses"><SiGoogletagmanager></SiGoogletagmanager> Manage Classes</NavLink></li>
+                            <li className="text-white uppercase"><NavLink to="/dashboard/manageUsers"><FaUsers></FaUsers> Manage Users</NavLink></li>
                             <li className="text-white">
-                                <NavLink to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart
+                                <NavLink to="/dashboard/myCart"><FaShoppingCart></FaShoppingCart> My Cart
                                     <span className="badge inline badge-secondary">+{cart?.length || 0}</span>
                                 </NavLink>
 
                             </li>
-                        </>) : (<>
-                            <li className="text-white uppercase"><NavLink to="/dashboard/userhome"><FaHome></FaHome> User Home</NavLink></li>
+                        </>)
+                         : 
+                        role === 'instructor' ? (<>
+                            <li className="text-white uppercase"><NavLink to="/dashboard/instructorHome"><FaHome></FaHome> Instructor Home</NavLink></li>
+                            <li className="text-white uppercase" ><NavLink to="/dashboard/instructorAddClass"><MdLibraryAdd></MdLibraryAdd> Add a Class</NavLink></li>
+                            <li className="text-white uppercase"><NavLink to="/dashboard/instructorMyClass"><SiGoogleclassroom></SiGoogleclassroom> My Classes</NavLink></li>
+                            <li className="text-white">
+                                <NavLink to="/dashboard/myCart"><FaShoppingCart></FaShoppingCart> My Cart
+                                    <span className="badge inline badge-secondary">+{cart?.length || 0}</span>
+                                </NavLink>
+
+                            </li>
+                     
+                        </>)
+                         : 
+                        (<>
+                            <li className="text-white uppercase"><NavLink to="/dashboard/userHome"><FaHome></FaHome> User Home</NavLink></li>
                             <li className="text-white uppercase" ><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
                             <li className="text-white uppercase"><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
                             <li className="text-white">
-                                <NavLink to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart
+                                <NavLink to="/dashboard/myCart"><FaShoppingCart></FaShoppingCart> My Cart
                                     <span className="badge inline badge-secondary">+{cart?.length || 0}</span>
                                 </NavLink>
 
