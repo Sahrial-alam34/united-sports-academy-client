@@ -43,24 +43,24 @@ const DashBoard = () => {
                             <li className="text-white uppercase"><NavLink to="/dashboard/addItem"> <SiGoogleclassroom></SiGoogleclassroom> Add a Class</NavLink></li>
                             <li className="text-white uppercase"><NavLink to="/dashboard/adminManageClasses"><SiGoogletagmanager></SiGoogletagmanager> Manage Classes</NavLink></li>
                             <li className="text-white uppercase"><NavLink to="/dashboard/manageUsers"><FaUsers></FaUsers> Manage Users</NavLink></li>
-                            <li className="text-white">
+                            {/* <li className="text-white">
                                 <NavLink to="/dashboard/myCart"><FaShoppingCart></FaShoppingCart> My Cart
                                     <span className="badge inline badge-secondary">+{cart?.length || 0}</span>
                                 </NavLink>
 
-                            </li>
+                            </li> */}
                         </>)
                          : 
                         role === 'instructor' ? (<>
                             <li className="text-white uppercase"><NavLink to="/dashboard/instructorHome"><FaHome></FaHome> Instructor Home</NavLink></li>
                             <li className="text-white uppercase" ><NavLink to="/dashboard/instructorAddClass"><MdLibraryAdd></MdLibraryAdd> Add a Class</NavLink></li>
                             <li className="text-white uppercase"><NavLink to="/dashboard/instructorMyClass"><SiGoogleclassroom></SiGoogleclassroom> My Classes</NavLink></li>
-                            <li className="text-white">
+                            {/* <li className="text-white">
                                 <NavLink to="/dashboard/myCart"><FaShoppingCart></FaShoppingCart> My Cart
                                     <span className="badge inline badge-secondary">+{cart?.length || 0}</span>
                                 </NavLink>
 
-                            </li>
+                            </li> */}
                      
                         </>)
                          : 

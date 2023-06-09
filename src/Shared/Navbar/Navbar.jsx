@@ -2,11 +2,12 @@ import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/logo/unitedlogo.jpg'
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaUserShield } from "react-icons/fa";
 import useCart from "../../hooks/useCart";
+import { MdSports } from "react-icons/md";
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
-    
+    const { role } = useContext(AuthContext)
     const [cart] = useCart();
     const handleLogOut = () => {
         logOut()
@@ -25,20 +26,51 @@ const Navbar = () => {
             to='/classes'
             className={({ isActive }) => (isActive ? 'active' : 'default')}
         >Classes</NavLink></li>
-        <li className="uppercase"><NavLink
-            to='/secret'
-            className={({ isActive }) => (isActive ? 'active' : 'default')}
-        >Secret</NavLink></li>
-       
 
-       <li>
-            <Link to="/dashboard/myCart">
-                <button className="btn gap-2">
-                    <FaShoppingCart></FaShoppingCart>
-                    <div className="badge badge-secondary">+{cart?.length || 0}</div>
-                </button>
-            </Link>
-        </li>
+        {
+            role === 'admin' ? (<>
+
+                <li className="text-white uppercase">
+                    <NavLink to="/dashboard/adminHome"><FaUserShield></FaUserShield> Admin Panel
+
+                    </NavLink>
+
+                </li>
+            </>)
+                :
+                role === 'instructor' ? (<>
+
+                    <li className="text-white uppercase">
+                        <NavLink to="/dashboard/instructorHome"><MdSports></MdSports> Instructor Panel
+
+                        </NavLink>
+                    </li>
+
+
+
+                </>)
+                    :
+                    (<>
+                        <li className="text-white uppercase">
+
+                            <NavLink to="/dashboard/userHome"><FaShoppingCart></FaShoppingCart> My Cart
+                                <span className="badge inline badge-secondary">+{cart?.length || 0}</span>
+                            </NavLink>
+                        </li>
+
+                        <li className="text-white uppercase">
+                            <Link to="/dashboard/myCart">
+                                <button className="btn gap-2">
+                                    <FaShoppingCart></FaShoppingCart>
+                                    <div className="badge badge-secondary">+{cart?.length || 0}</div>
+                                </button>
+                            </Link>
+                        </li>
+
+                    </>)
+        }
+
+
 
         {
             user ? <div className=' hidden space-x-8 lg:flex '>
@@ -73,8 +105,8 @@ const Navbar = () => {
                              " data-tip={user.displayName}>
                         <button className="mt-2 h-10 w-10  rounded-full bg-gray-300">
                             <img className="rounded-full h-full w-full"
-                            referrerPolicy="no-referrer"
-                             src={user.photoURL} alt={user.displayName} />
+                                referrerPolicy="no-referrer"
+                                src={user.photoURL} alt={user.displayName} />
                         </button>
                     </div>
                     {/* <div className="absolute bottom-0 left-0 transform translate-y-full -translate-x-1/2">
@@ -98,27 +130,27 @@ const Navbar = () => {
             </div> :
                 <div className='hidden space-x-8 lg:flex gap-0'>
 
-                <li className="uppercase">
-                <NavLink
-                        to='/login'
-                        aria-label='Login'
-                        title='Login'
-                        className={({ isActive }) => (isActive ? 'active' : 'default')}
-                    >
-                        login
-                    </NavLink>
-                </li>
+                    <li className="uppercase">
+                        <NavLink
+                            to='/login'
+                            aria-label='Login'
+                            title='Login'
+                            className={({ isActive }) => (isActive ? 'active' : 'default')}
+                        >
+                            login
+                        </NavLink>
+                    </li>
 
-                <li className="uppercase">
-                <NavLink
-                        to='/register'
-                        aria-label='Register'
-                        title='Register'
-                        className={({ isActive }) => (isActive ? 'active' : 'default')}
-                    >
-                        register
-                    </NavLink>
-                </li>
+                    <li className="uppercase">
+                        <NavLink
+                            to='/register'
+                            aria-label='Register'
+                            title='Register'
+                            className={({ isActive }) => (isActive ? 'active' : 'default')}
+                        >
+                            register
+                        </NavLink>
+                    </li>
 
                 </div>
         }

@@ -13,6 +13,9 @@ import Classes from "../pages/Classes/Classes";
 import DashBoard from "../Layout/DashBoard";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import UserHome from "../pages/Dashboard/UserHome/UserHome";
+import InstructorHome from "../pages/Dashboard/InstructorHome/InstructorHome";
 
   const router = createBrowserRouter([
     {
@@ -49,6 +52,18 @@ import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
      path:"dashboard",
      element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
      children:[
+      {
+        path:'adminHome',
+        element:<AdminHome></AdminHome>
+      },
+      {
+        path:'userHome',
+        element:<UserHome></UserHome>
+      },
+      {
+        path:'instructorHome',
+        element:<InstructorHome></InstructorHome>
+      },
       {
         path:'myCart',
         element:<MyCart></MyCart>
