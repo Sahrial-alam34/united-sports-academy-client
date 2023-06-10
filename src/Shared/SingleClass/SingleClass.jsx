@@ -10,9 +10,13 @@ const SingleClass = ({ cla }) => {
     const [, refetch] = useCart();
     const navigate = useNavigate();
     const location = useLocation();
+   
     const { picture, title, instructorName, availableSeat, students, _id, Price, status } = cla;
+    //const [seats, setSeats] = useState(availableSeat);
     const handleAddToCart = item => {
         console.log('item', item)
+      
+  
         if (user && user.email) {
             const cartItem = { classId: _id, title, instructorName, availableSeat, students, picture, Price, email: user.email }
             fetch('http://localhost:5000/carts', {
@@ -26,6 +30,7 @@ const SingleClass = ({ cla }) => {
                 .then(data => {
                     if (data.insertedId) {
                         refetch(); //it can update cart item
+                        //setSeats(updatedSeats);
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',

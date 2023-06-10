@@ -17,6 +17,7 @@ import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import InstructorHome from "../pages/Dashboard/InstructorHome/InstructorHome";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
+import Payment from "../pages/Dashboard/Payment/Payment";
 
   const router = createBrowserRouter([
     {
@@ -81,6 +82,11 @@ import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
         path:'adminManageClasses',
         element:<ManageClasses></ManageClasses>
       },
+      {
+        path: 'payment/:id',
+        element:<Payment></Payment>,
+        loader:({params}) => fetch(`http://localhost:5000/carts/${params.id}`)
+      }
      ]  
     }
   ]);

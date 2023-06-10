@@ -2,14 +2,15 @@ import { Helmet } from "react-helmet-async";
 import useCart from "../../../hooks/useCart";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const MyCart = () => {
-    const [cart,refetch] = useCart();
-   // console.log('7 cart', cart);
-    const total = cart.reduce((sum, item) => item.Price + sum, 0);
+    const [cart, refetch] = useCart();
+    // console.log('7 cart', cart);
+    //const total = cart.reduce((sum, item) => item.Price + sum, 0);
     const handleDelete = item => {
-       // console.log(item);
+        // console.log(item);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -47,8 +48,8 @@ const MyCart = () => {
             </Helmet>
             <div className="font-bold flex justify-evenly gap-10 items-center h-[60px]">
                 <h3 className="text-3xl">Total Classes Booked: {cart.length}</h3>
-                <h3 className="text-3xl">Total Price: ${total}</h3>
-                <button className="rounded-full btn btn-outline bg-purple-500 text-white border-0 border-b-4  hover:text-[#BB8506]">Pay Now</button>
+                {/* <h3 className="text-3xl">Total Price: ${total}</h3> */}
+
             </div>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full bg-gray-300">
@@ -61,6 +62,7 @@ const MyCart = () => {
                             <th>Price</th>
                             <th>Students</th>
                             <th>Action</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -93,6 +95,11 @@ const MyCart = () => {
 
                                 <td>
                                     <button onClick={() => handleDelete(item)} className="btn btn-ghost btn-md bg-red-600 text-white"><FaTrashAlt></FaTrashAlt></button>
+                                </td>
+                                <td>
+                                    <Link to={`/dashboard/payment/${item._id}`}>
+                                        <button className="rounded-full btn btn-outline bg-purple-500 text-white border-0 border-b-4  hover:text-[#BB8506]">Pay Now</button>
+                                    </Link>
                                 </td>
                             </tr>)
                         }
