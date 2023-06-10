@@ -1,16 +1,49 @@
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import usePendingClasses from "../../../hooks/usePendingClasses";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
 const ManageClasses = () => {
     const [pendingClasses, refetch] = usePendingClasses();
-     console.log('7 pendingClasses', pendingClasses);
-    
-     const handleApproved = item => {
+    //console.log('7 pendingClasses', pendingClasses);
+    //const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
+    const handleApproved = item => {
         const status = { status: "approved" };
         //console.log('roleadmin', role)
+        //setIsButtonDisabled(true);
+
+
+        fetch(`http://localhost:5000/addClass/admin/${item._id}`,
+            {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(status)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${item.instructorName} post is Approved!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+    const handleDenied = item => {
+        const status = { status: "denied" };
+        //console.log('roleadmin', role)
+        //setIsButtonDisabled(true);
 
 
         fetch(`http://localhost:5000/addClass/admin/${item._id}`,
@@ -37,35 +70,35 @@ const ManageClasses = () => {
             })
     }
 
-    const handleDelete = item => {
-        // console.log(item);
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`http://localhost:5000/addClass/${item._id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.deletedCount > 0) {
-                            refetch();
-                            Swal.fire(
-                                'Deleted!',
-                                'Your Class has been deleted.',
-                                'success'
-                            )
-                        }
-                    })
-            }
-        })
-    }
+    // const handleDelete = item => {
+    //     // console.log(item);
+    //     Swal.fire({
+    //         title: 'Are you sure?',
+    //         text: "You won't be able to revert this!",
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#3085d6',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Yes, delete it!'
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             fetch(`http://localhost:5000/addClass/${item._id}`, {
+    //                 method: 'DELETE'
+    //             })
+    //                 .then(res => res.json())
+    //                 .then(data => {
+    //                     if (data.deletedCount > 0) {
+    //                         refetch();
+    //                         Swal.fire(
+    //                             'Deleted!',
+    //                             'Your Class has been deleted.',
+    //                             'success'
+    //                         )
+    //                     }
+    //                 })
+    //         }
+    //     })
+    // }
     return (
         <div>
             <Helmet>
@@ -89,6 +122,7 @@ const ManageClasses = () => {
                             <th>Price</th>
                             <th>Students</th>
                             <th>Available Seat</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -126,11 +160,33 @@ const ManageClasses = () => {
                                     {item.availableSeat}
                                 </td>
 
-                                <td className="flex gap-2">
+                                <td>
                                     <button className=" text-black disabled:opacity-100 uppercase" disabled>{item.status}</button>
-                                    <button onClick={() => handleApproved(item)} className="btn btn-ghost btn-md bg-green-600 text-white"><small>Approved</small></button>
-                                    <button onClick={() => handleDelete(item)} className="btn btn-ghost btn-md bg-red-600 text-white"><small>Denied</small></button>
+
                                 </td>
+                                {
+                                    item.status === 'approved' || item.status === 'denied' ?
+                                        <td className="flex gap-2">
+
+                                            <button onClick={() => handleApproved(item)} className="btn btn-ghost btn-md bg-green-600 text-white" disabled><small>Approved</small></button>
+                                            <button onClick={() => handleDenied(item)} className="btn btn-ghost btn-md bg-red-600 text-white" disabled ><small>Denied</small></button>
+                                            <Link to={`/dashboard/adminFeedback/${item._id}`}>
+                                                <button className="btn btn-ghost btn-md bg-yellow-600 text-white"><small>Feedback</small></button>
+                                            </Link>
+                                            {/* <button onClick={() => handleDelete(item)} className="btn btn-ghost btn-md bg-red-600 text-white"><small>Delete</small></button> */}
+                                        </td>
+                                        :
+                                        <td className="flex gap-2">
+
+                                            <button onClick={() => handleApproved(item)} className="btn btn-ghost btn-md bg-green-600 text-white" ><small>Approved</small></button>
+                                            <button onClick={() => handleDenied(item)} className="btn btn-ghost btn-md bg-red-600 text-white" ><small>Denied</small></button>
+                                            <Link to={`/dashboard/adminFeedback/${item._id}`}>
+                                                <button className="btn btn-ghost btn-md bg-yellow-600 text-white"><small>Feedback</small></button>
+                                            </Link>
+                                            {/* <button onClick={() => handleDelete(item)} className="btn btn-ghost btn-md bg-red-600 text-white"><small>Delete</small></button> */}
+                                        </td>
+
+                                }
                             </tr>)
                         }
 

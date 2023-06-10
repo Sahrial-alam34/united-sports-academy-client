@@ -40,7 +40,7 @@ const DashBoard = () => {
                     {
                         role === 'admin' ? (<>
                             <li className="text-white uppercase"><NavLink to="/dashboard/adminHome"><FaHome></FaHome> Admin Home</NavLink></li>
-                            <li className="text-white uppercase"><NavLink to="/dashboard/addItem"> <SiGoogleclassroom></SiGoogleclassroom> Add a Class</NavLink></li>
+                            {/* <li className="text-white uppercase"><NavLink to="/dashboard/addItem"> <SiGoogleclassroom></SiGoogleclassroom> Add a Class</NavLink></li> */}
                             <li className="text-white uppercase"><NavLink to="/dashboard/adminManageClasses"><SiGoogletagmanager></SiGoogletagmanager> Manage Classes</NavLink></li>
                             <li className="text-white uppercase"><NavLink to="/dashboard/manageUsers"><FaUsers></FaUsers> Manage Users</NavLink></li>
                             {/* <li className="text-white">
