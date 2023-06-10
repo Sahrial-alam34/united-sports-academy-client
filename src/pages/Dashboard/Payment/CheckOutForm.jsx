@@ -4,8 +4,8 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 const CheckoutForm = ({ price, sportsClass }) => {
-    const { title, Price, classId, _id, availableSeat, students, instructorName } = sportsClass
-    console.log('spoets', sportsClass)
+    const { title, classId, _id, availableSeat, students, instructorName } = sportsClass
+    //console.log('spoets', sportsClass)
     const { user } = useContext(AuthContext)
     const stripe = useStripe();
     const elements = useElements();
@@ -15,7 +15,7 @@ const CheckoutForm = ({ price, sportsClass }) => {
     const [transactionId, setTransactionId] = useState('');
 
     useEffect(() => {
-        console.log('price', price)
+        //console.log('price', price)
         fetch('http://localhost:5000/create-payment-intent', {
             method: "POST",
             headers: {
@@ -105,7 +105,7 @@ const CheckoutForm = ({ price, sportsClass }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.insertedId) {
+                    if (data.result.insertedId) {
                     
                         Swal.fire({
                             position: 'top-end',

@@ -10,7 +10,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK)
 const Payment = () => {
     const sportsClass = useLoaderData();
     const { picture, Price, title, availableSeat, students, instructorName } = sportsClass
-    const price= parseFloat(Price.toFixed(2))
+    const price= parseFloat(Price?.toFixed(2))
     return (
         <div>
             <Helmet>
