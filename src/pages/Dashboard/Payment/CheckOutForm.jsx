@@ -1,4 +1,4 @@
-import { CardElement, Elements, useElements, useStripe } from '@stripe/react-stripe-js';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import './CheckOutForm.css'
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';

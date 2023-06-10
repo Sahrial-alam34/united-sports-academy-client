@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -47,6 +48,10 @@ const AdminFeedback = () => {
     };
     return (
         <>
+           <Helmet>
+                <title>United Sports | Admin Feedback</title>
+
+            </Helmet>
             <div className="card w-[450px]  bg-base-100 shadow-xl h-60 mb-5">
                 <figure><img src={picture} alt="Shoes" /></figure>
                 <div className="card-body">

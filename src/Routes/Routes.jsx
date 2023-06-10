@@ -19,6 +19,7 @@ import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import AdminFeedback from "../pages/Dashboard/AdminFeedback/AdminFeedback";
+import InstructorMyClass from "../pages/Dashboard/InstructorMyClass/InstructorMyClass";
 
   const router = createBrowserRouter([
     {
@@ -78,6 +79,10 @@ import AdminFeedback from "../pages/Dashboard/AdminFeedback/AdminFeedback";
       {
         path:'addClass',
         element:<AddClass></AddClass>
+      },
+      {
+        path:'instructorMyClass',
+        element:<InstructorMyClass></InstructorMyClass>
       },
       {
         path:'adminManageClasses',

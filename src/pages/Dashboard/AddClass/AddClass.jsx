@@ -48,7 +48,7 @@ const AddClass = () => {
                     })
                 }
             }))
-        //console.log(data);
+       // console.log(data);
     }
     return (
         <div className="">
@@ -111,7 +111,9 @@ const AddClass = () => {
                                     {...register("students", { required: true })}
                                     placeholder="Students"
                                     type="text"
-                                // defaultValue="3.5"
+                                    defaultValue="0"
+                                    disabled
+                                    
                                 />
 
                           
