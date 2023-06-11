@@ -6,7 +6,7 @@ const usePendingClasses = () => {
     // const [pendingClasses, setPendingClasses] = useState([]);
     // const [loading, setLoading] = useState(true);
     // useEffect(()=>{
-    //     fetch('http://localhost:5000/addClass')
+    //     fetch('https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/addClass')
     //     .then(res => res.json())
     //     .then(data =>{
     //         setPendingClasses(data)
@@ -21,7 +21,7 @@ const usePendingClasses = () => {
         // enabled: !loading,
         queryFn: async () => {
           
-            const res = await fetch('http://localhost:5000/addClass')
+            const res = await fetch('https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/addClass')
             return res.json();
         },
    

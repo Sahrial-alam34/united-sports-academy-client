@@ -23,13 +23,15 @@ import InstructorMyClass from "../pages/Dashboard/InstructorMyClass/InstructorMy
 import UpdateClass from "../pages/Dashboard/UpdateClass/UpdateClass";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import EnrolledClasses from "../pages/Dashboard/EnrolledClasses/EnrolledClasses";
-import InstructorDetails from "../Shared/InstructorDetails/InstructorDetails";
+
 import InstructorMoreDetails from "../pages/InstructorMoreDetails/InstructorMoreDetails";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path:'/',
@@ -51,7 +53,7 @@ import InstructorMoreDetails from "../pages/InstructorMoreDetails/InstructorMore
         {
           path:'/instructorMoreDetails/:id',
           element:<InstructorMoreDetails></InstructorMoreDetails>,
-          loader:({params}) => fetch(`http://localhost:5000/instructorMoreDetails/${params.id}`)
+          loader:({params}) => fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/instructorMoreDetails/${params.id}`)
         },
     
         {
@@ -102,7 +104,7 @@ import InstructorMoreDetails from "../pages/InstructorMoreDetails/InstructorMore
       {
         path:'updatedAClass/:id',
         element:<UpdateClass></UpdateClass>,
-        loader: ({params})=>fetch(`http://localhost:5000/updatedClass/${params.id}`)
+        loader: ({params})=>fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/updatedClass/${params.id}`)
         
       },
       {
@@ -116,12 +118,12 @@ import InstructorMoreDetails from "../pages/InstructorMoreDetails/InstructorMore
       {
         path: 'payment/:id',
         element:<Payment></Payment>,
-        loader:({params}) => fetch(`http://localhost:5000/carts/${params.id}`)
+        loader:({params}) => fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/carts/${params.id}`)
       },
       {
         path:'adminFeedback/:id',
         element:<AdminFeedback></AdminFeedback>,
-        loader:({params}) => fetch(`http://localhost:5000/feedback/${params.id}`)
+        loader:({params}) => fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/feedback/${params.id}`)
       },
      ]  
     }

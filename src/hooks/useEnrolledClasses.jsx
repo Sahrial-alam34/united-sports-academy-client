@@ -8,7 +8,7 @@ const useEnrolledClasses = () => {
         queryKey: ['enrolledClasses', user?.email],
         // enabled: !loading,
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/enrolledClasses?email=${user?.email}`)
+            const res = await fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/enrolledClasses?email=${user?.email}`)
  
             return res.json();
         },

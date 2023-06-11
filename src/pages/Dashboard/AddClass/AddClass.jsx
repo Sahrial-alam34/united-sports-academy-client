@@ -29,7 +29,7 @@ const AddClass = () => {
     const onSubmit = (data) => {
         
 
-        fetch("http://localhost:5000/addClass", {
+        fetch("https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/addClass", {
             method: "POST",
             headers: {
                 'Content-type': 'application/json'
@@ -48,7 +48,7 @@ const AddClass = () => {
                     })
                 }
             }))
-        console.log(data);
+       // console.log(data);
     }
     return (
         <div className="">
@@ -103,16 +103,16 @@ const AddClass = () => {
                                     className="text-input p-5 h-10 text-black rounded-lg border-2 border-indigo-400 mb-2 mr-2"
                                     {...register("availableSeat", { required: true })}
                                     placeholder="Available Seat"
-                                    type="text"
+                                    type="number"
                                 // defaultValue="3.5"
                                 />
                                 <input
                                     className="text-input p-5 h-10 text-black rounded-lg border-2 border-indigo-400 mb-2 mr-2"
                                     {...register("students")}
                                     placeholder="Students"
-                                    type="text"
+                                    type="number"
                                     defaultValue="0"
-                                    disabled
+                                   
                                     
                                 />
 

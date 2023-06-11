@@ -19,7 +19,7 @@ const SingleClass = ({ cla }) => {
 
         if (user && user.email) {
             const cartItem = { classId: _id, title, instructorName, availableSeat, students, picture, Price, email: user.email }
-            fetch('http://localhost:5000/carts', {
+            fetch('https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/carts', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'
@@ -72,6 +72,7 @@ const SingleClass = ({ cla }) => {
                                 <p>Seats Available: {availableSeat}</p>
                                 <p>Total Students:{students}</p>
                             </div>
+                            <p className="font-bold">Price: {Price}</p>
                             {
                                 role === 'admin' ? (<>
 
@@ -107,6 +108,7 @@ const SingleClass = ({ cla }) => {
                                 <p>Seats Available: {availableSeat}</p>
                                 <p>Total Students:{students}</p>
                             </div>
+                            <p className="font-bold">Price: {Price}</p>
                             {
                                 role === 'admin' ? (<>
 

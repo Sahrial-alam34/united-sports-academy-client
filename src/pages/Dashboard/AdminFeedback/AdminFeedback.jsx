@@ -18,7 +18,7 @@ const AdminFeedback = () => {
         //setIsButtonDisabled(true);
 
 
-        fetch(`http://localhost:5000/feedback/admin/${_id}`,
+        fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/feedback/admin/${_id}`,
             {
                 method: 'PATCH',
                 headers: {

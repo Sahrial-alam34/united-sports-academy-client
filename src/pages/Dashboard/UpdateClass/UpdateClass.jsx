@@ -22,7 +22,7 @@ const UpdateClass = () => {
         console.log(updatedClass)
        
         //send data to the server
-        fetch(`http://localhost:5000/updatedAClass/${_id}`, {
+        fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/updatedAClass/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

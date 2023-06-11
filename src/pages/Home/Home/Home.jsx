@@ -9,7 +9,7 @@ import Facility from "../Facility/Facility";
 
 const Home = () => {
     return (
-        <div className="my-container">
+        <>
             <Helmet>
                 <title>United Sports | Home</title>
 
@@ -18,9 +18,9 @@ const Home = () => {
             <PopularClass></PopularClass>
             <PopularInstructor></PopularInstructor>
             <Facility></Facility>
-            {/* <Loader></Loader> */}
             
-        </div>
+            
+        </>
     );
 };
 

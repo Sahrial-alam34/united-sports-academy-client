@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
       <motion.div
-           animate={{ x: [50, 150, 50], opacity: 1, scale: 1 }}
+           animate={{ opacity: 1, scale: 1 }}
            transition={{
                duration: 1,
                delay: 0.3,
@@ -43,5 +43,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </motion.div>
 
     </AuthProvider>
+
   </React.StrictMode>,
 )
