@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 const useInstructor = () =>{
     const [instructor, setInstructor] = useState([]);
+    const [instructorUsers, setInstructorUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(()=>{
         fetch('http://localhost:5000/instructor')
@@ -11,7 +12,15 @@ const useInstructor = () =>{
             setLoading(false);
         })
     },[])
-    return [instructor, loading]
+    useEffect(()=>{
+        fetch('http://localhost:5000/instructorUsers')
+        .then(res => res.json())
+        .then(data =>{
+            setInstructorUsers(data)
+            setLoading(false);
+        })
+    },[])
+    return [instructor, loading,instructorUsers]
 
 }
 
