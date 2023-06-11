@@ -23,6 +23,8 @@ import InstructorMyClass from "../pages/Dashboard/InstructorMyClass/InstructorMy
 import UpdateClass from "../pages/Dashboard/UpdateClass/UpdateClass";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import EnrolledClasses from "../pages/Dashboard/EnrolledClasses/EnrolledClasses";
+import InstructorDetails from "../Shared/InstructorDetails/InstructorDetails";
+import InstructorMoreDetails from "../pages/InstructorMoreDetails/InstructorMoreDetails";
 
   const router = createBrowserRouter([
     {
@@ -46,6 +48,12 @@ import EnrolledClasses from "../pages/Dashboard/EnrolledClasses/EnrolledClasses"
           path:'/instructor',
           element:<Instructor></Instructor>
         },
+        {
+          path:'/instructorMoreDetails/:id',
+          element:<InstructorMoreDetails></InstructorMoreDetails>,
+          loader:({params}) => fetch(`http://localhost:5000/instructorMoreDetails/${params.id}`)
+        },
+    
         {
           path:'/classes',
           element:<Classes></Classes>

@@ -4,6 +4,7 @@ import InstructorDetails from "../../../Shared/InstructorDetails/InstructorDetai
 import useInstructor from "../../../hooks/useInstructor";
 
 
+
 const PopularInstructor = () => {
     // const [instructors, setInstructors] = useState([])
     // useEffect(() => {
@@ -18,23 +19,28 @@ const PopularInstructor = () => {
     // }, [])
     const [instructors] = useInstructor();
     return (
-        <section className="mt-20">
-            <SectionTitle subHeading={"Top Instructor"} heading={"Most Popular Instructor In the Academy"}></SectionTitle>
-            <div className="flex min-h-screen items-center justify-center bg-stone-400">
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-                    {
-                        instructors.slice(0,6).map(instructor =>
+        <>
+         
+                <section className="mt-20">
+                    <SectionTitle subHeading={"Top Instructor"} heading={"Most Popular Instructor In the Academy"}></SectionTitle>
+                    <div className="flex min-h-screen items-center justify-center bg-stone-400">
+                        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+                            {
+                                instructors.slice(0, 6).map(instructor =>
 
-                            <InstructorDetails key={instructor._id} instructor={instructor}></InstructorDetails>
-                        )
-                    }
+                                    <InstructorDetails key={instructor._id} instructor={instructor}></InstructorDetails>
+                                )
+                            }
 
-                </div>
+                        </div>
 
 
-            </div>
+                    </div>
 
-        </section>
+                </section>
+
+            
+        </>
     );
 };
 

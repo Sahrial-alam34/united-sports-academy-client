@@ -1,15 +1,16 @@
 
+
 //import img1 from '../../assets/instructor/image1.jpg'
 const InstructorRoleDetails = ({ instructor, instructorRole }) => {
-    //console.log('ins', instructor.picture)
+ 
     const {  name, title, email } = instructor
-    console.log('ins 6', instructor)
+    //console.log('ins 6', instructor)
     return (
 
         <>
 
             {
-                instructorRole ==='instructor' &&
+                instructorRole ==='instructor' && 
                 <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
                     <div className="h-96 w-72">
                         <img className="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125" src={"picture"} alt="" />
