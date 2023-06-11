@@ -21,9 +21,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+           animate={{ x: [50, 150, 50], opacity: 1, scale: 1 }}
+           transition={{
+               duration: 1,
+               delay: 0.3,
+               ease: [0.5, 0.71, 1, 1.5],
+           }}
+           initial={{ opacity: 0, scale: 0.5 }}
+          
       >
         <Fade>
           <HelmetProvider>
