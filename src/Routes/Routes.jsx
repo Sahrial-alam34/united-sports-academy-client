@@ -21,6 +21,8 @@ import Payment from "../pages/Dashboard/Payment/Payment";
 import AdminFeedback from "../pages/Dashboard/AdminFeedback/AdminFeedback";
 import InstructorMyClass from "../pages/Dashboard/InstructorMyClass/InstructorMyClass";
 import UpdateClass from "../pages/Dashboard/UpdateClass/UpdateClass";
+import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
+import EnrolledClasses from "../pages/Dashboard/EnrolledClasses/EnrolledClasses";
 
   const router = createBrowserRouter([
     {
@@ -72,6 +74,14 @@ import UpdateClass from "../pages/Dashboard/UpdateClass/UpdateClass";
       {
         path:'myCart',
         element:<MyCart></MyCart>
+      },
+      {
+        path:'enrolledClasses',
+        element:<EnrolledClasses></EnrolledClasses>
+      },
+      {
+        path:'paymentHistory',
+        element:<PaymentHistory></PaymentHistory>
       },
       {
         path:'manageUsers',

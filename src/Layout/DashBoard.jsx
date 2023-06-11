@@ -10,7 +10,7 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const DashBoard = () => {
     const [cart] = useCart();
-    const { role } = useContext(AuthContext)
+    const { role, user } = useContext(AuthContext)
     // console.log('role', role)
     // if(role =='admin'){
     //     console.log('clicked')
@@ -35,8 +35,15 @@ const DashBoard = () => {
             <div className="drawer-side  ">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-gradient-to-r from-purple-500 to-purple-600 text-base-content ">
+                    <h2 className="text-white uppercase flex flex-wrap justify-center">{role} DashBoard</h2>
+                    <div className="flex flex-wrap justify-center">
+                        <div className="w-6/12 sm:w-4/12 px-4">
+                            <img src={user?.photoURL} alt={user?.displayName} className="shadow rounded-full max-w-full h-auto align-middle border-none" />
+                        </div>
+                    </div>
+                    <p className="text-white uppercase flex flex-wrap justify-center">{user?.displayName}</p>
 
-
+                    <div className="divider"></div>
                     {
                         role === 'admin' ? (<>
                             <li className="text-white uppercase"><NavLink to="/dashboard/adminHome"><FaHome></FaHome> Admin Home</NavLink></li>
@@ -66,8 +73,8 @@ const DashBoard = () => {
                                 :
                                 (<>
                                     <li className="text-white uppercase"><NavLink to="/dashboard/userHome"><FaHome></FaHome> User Home</NavLink></li>
-                                    <li className="text-white uppercase" ><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
-                                    <li className="text-white uppercase"><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
+                                    <li className="text-white uppercase" ><NavLink to="/dashboard/enrolledClasses"><FaCalendarAlt></FaCalendarAlt> Enrolled Classes</NavLink></li>
+                                    <li className="text-white uppercase"><NavLink to="/dashboard/paymentHistory"><FaWallet></FaWallet> Payment History</NavLink></li>
                                     <li className="text-white">
                                         <NavLink to="/dashboard/myCart"><FaShoppingCart></FaShoppingCart> My Cart
                                             <span className="badge inline badge-secondary">+{cart?.length || 0}</span>
