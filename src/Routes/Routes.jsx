@@ -20,6 +20,7 @@ import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import AdminFeedback from "../pages/Dashboard/AdminFeedback/AdminFeedback";
 import InstructorMyClass from "../pages/Dashboard/InstructorMyClass/InstructorMyClass";
+import UpdateClass from "../pages/Dashboard/UpdateClass/UpdateClass";
 
   const router = createBrowserRouter([
     {
@@ -79,6 +80,12 @@ import InstructorMyClass from "../pages/Dashboard/InstructorMyClass/InstructorMy
       {
         path:'addClass',
         element:<AddClass></AddClass>
+      },
+      {
+        path:'updatedAClass/:id',
+        element:<UpdateClass></UpdateClass>,
+        loader: ({params})=>fetch(`http://localhost:5000/updatedClass/${params.id}`)
+        
       },
       {
         path:'instructorMyClass',

@@ -2,22 +2,25 @@ import { Helmet } from "react-helmet-async";
 
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 
 const InstructorMyClass = () => {
 
     const { user } = useContext(AuthContext)
-    console.log('user 10 ', user.email)
+    //console.log('user 10 ', user.email)
     const [singleInstructor, setSingleInstructor] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch(`http://localhost:5000/singleInstructor/${user.email}`)
+        fetch(`http://localhost:5000/singleInstructor/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setSingleInstructor(data)
                 setLoading(false);
             })
-    }, [user.email])
+    }, [user?.email])
+
+ 
 
     return (
         <div>
@@ -86,11 +89,12 @@ const InstructorMyClass = () => {
 
                                 </td>
                                 <td>
-                                   <p><small>{item.feedback}</small></p>
+                                    <p><small>{item.feedback}</small></p>
 
                                 </td>
                                 <td>
-                                    <button onClick={() => handleDenied(item)} className="btn btn-ghost btn-md bg-green-600 text-white" ><small>Updated</small></button>
+                                    <Link to={`/dashboard/updatedAClass/${item._id}`}>
+                                        <button className="btn btn-ghost btn-md bg-green-600 text-white" ><small>Updated</small></button></Link>
                                 </td>
 
                             </tr>)

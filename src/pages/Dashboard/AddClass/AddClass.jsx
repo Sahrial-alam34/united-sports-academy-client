@@ -48,7 +48,7 @@ const AddClass = () => {
                     })
                 }
             }))
-       // console.log(data);
+        console.log(data);
     }
     return (
         <div className="">
@@ -108,7 +108,7 @@ const AddClass = () => {
                                 />
                                 <input
                                     className="text-input p-5 h-10 text-black rounded-lg border-2 border-indigo-400 mb-2 mr-2"
-                                    {...register("students", { required: true })}
+                                    {...register("students")}
                                     placeholder="Students"
                                     type="text"
                                     defaultValue="0"
