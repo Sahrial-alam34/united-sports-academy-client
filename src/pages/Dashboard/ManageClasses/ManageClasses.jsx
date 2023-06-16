@@ -17,7 +17,7 @@ const ManageClasses = () => {
         //setIsButtonDisabled(true);
 
 
-        fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/addClass/admin/${item._id}`,
+        fetch(`http://localhost:5000/addClass/admin/${item._id}`,
             {
                 method: 'PATCH',
                 headers: {
@@ -46,7 +46,7 @@ const ManageClasses = () => {
         //setIsButtonDisabled(true);
 
 
-        fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/addClass/admin/${item._id}`,
+        fetch(`http://localhost:5000/addClass/admin/${item._id}`,
             {
                 method: 'PATCH',
                 headers: {
@@ -82,7 +82,7 @@ const ManageClasses = () => {
     //         confirmButtonText: 'Yes, delete it!'
     //     }).then((result) => {
     //         if (result.isConfirmed) {
-    //             fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/addClass/${item._id}`, {
+    //             fetch(`http://localhost:5000/addClass/${item._id}`, {
     //                 method: 'DELETE'
     //             })
     //                 .then(res => res.json())

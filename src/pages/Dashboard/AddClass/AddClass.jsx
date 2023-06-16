@@ -29,7 +29,7 @@ const AddClass = () => {
     const onSubmit = (data) => {
         
 
-        fetch("https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/addClass", {
+        fetch("http://localhost:5000/addClass", {
             method: "POST",
             headers: {
                 'Content-type': 'application/json'

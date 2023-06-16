@@ -8,7 +8,7 @@ const useAdmin = () =>{
         queryKey: ['isAdmin', user?.email],
         // enabled: !loading,
         queryFn: async () => {
-            const res = await fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/users/admin?email=${user?.email}`,{
+            const res = await fetch(`http://localhost:5000/users/admin?email=${user?.email}`,{
 
             })
       

@@ -9,7 +9,7 @@ const AllUsers = () => {
 
     const [axiosSecure] = useAxiosSecure(); 
     const { data: users = [], refetch } = useQuery(['users'], async () => {
-        // const res = await fetch('https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/users')
+        // const res = await fetch('http://localhost:5000/users')
         // return res.json()
         const res = await axiosSecure.get('/users')
         return res.data;
@@ -21,7 +21,7 @@ const AllUsers = () => {
         //console.log('roleadmin', role)
 
 
-        fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/users/admin/${user._id}`,
+        fetch(`http://localhost:5000/users/admin/${user._id}`,
             {
                 method: 'PATCH',
                 headers: {
@@ -48,7 +48,7 @@ const AllUsers = () => {
 
         const role = { role: "instructor" };
         //console.log('roleinstructor', role)
-        fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/users/admin/${user._id}`,
+        fetch(`http://localhost:5000/users/admin/${user._id}`,
             {
                 method: 'PATCH',
                 headers: {
@@ -84,7 +84,7 @@ const AllUsers = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/users/${user._id}`, {
+                fetch(`http://localhost:5000/users/${user._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

@@ -5,7 +5,7 @@ const useInstructor = () =>{
     const [instructorUsers, setInstructorUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(()=>{
-        fetch('https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/instructor')
+        fetch('http://localhost:5000/instructor')
         .then(res => res.json())
         .then(data =>{
             setInstructor(data)
@@ -13,7 +13,7 @@ const useInstructor = () =>{
         })
     },[])
     useEffect(()=>{
-        fetch('https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/instructorUsers')
+        fetch('http://localhost:5000/instructorUsers')
         .then(res => res.json())
         .then(data =>{
             setInstructorUsers(data)

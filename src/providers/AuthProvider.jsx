@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
 
           // get and set token
             if(currentUser){
-                axios.post('https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/jwt', {email: currentUser.email})
+                axios.post('http://localhost:5000/jwt', {email: currentUser.email})
                 .then(data =>{
                     // console.log(data.data.token)
                     localStorage.setItem('sports-access-token', data.data.token)

@@ -35,13 +35,15 @@ const DashBoard = () => {
             <div className="drawer-side  ">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-gradient-to-r from-purple-500 to-purple-600 text-base-content ">
-                    <h2 className="text-white uppercase flex flex-wrap justify-center">{role} DashBoard</h2>
-                    <div className="flex flex-wrap justify-center">
-                        <div className="w-6/12 sm:w-4/12 px-4">
-                            <img src={user?.photoURL} alt={user?.displayName} className="shadow rounded-full max-w-full h-auto align-middle border-none" />
+                    <div className="w-[288px] h-[122px]">
+                        <h2 className="text-white uppercase flex flex-wrap justify-center">{role} DashBoard</h2>
+                        <div className="flex flex-wrap justify-center">
+                            <div className="w-6/12 sm:w-4/12 px-4">
+                                <img src={user?.photoURL} alt={user?.displayName} className="shadow rounded-full w-[65px] h-[80px] align-middle border-none" />
+                            </div>
                         </div>
+                        <p className="text-white uppercase flex flex-wrap justify-center">{user?.displayName}</p>
                     </div>
-                    <p className="text-white uppercase flex flex-wrap justify-center">{user?.displayName}</p>
 
                     <div className="divider"></div>
                     {

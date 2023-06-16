@@ -30,7 +30,7 @@ const Facility = () => {
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat nam eligendi pariatur dolores nostrum et cumque eos itaque impedit voluptas.</p>
                     </div>
 
-                </div>
+            </div>
         </section>
     );
 };

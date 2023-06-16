@@ -9,8 +9,8 @@ const useCart = () => {
          enabled: !loading && !!user?.email,
         queryFn: async () => {
             const token = localStorage.getItem('sports-access-token');
-           // const res = await fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/carts?email=${user?.email}`)
-            const res = await fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/carts?email=${user?.email}`, {
+           // const res = await fetch(`http://localhost:5000/carts?email=${user?.email}`)
+            const res = await fetch(`http://localhost:5000/carts?email=${user?.email}`, {
                 headers: {
                     authorization: `bearer ${token}`
                 }

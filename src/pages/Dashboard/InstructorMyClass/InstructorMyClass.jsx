@@ -12,7 +12,7 @@ const InstructorMyClass = () => {
     const [singleInstructor, setSingleInstructor] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/singleInstructor/${user?.email}`)
+        fetch(`http://localhost:5000/singleInstructor/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setSingleInstructor(data)

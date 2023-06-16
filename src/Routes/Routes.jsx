@@ -53,7 +53,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
         {
           path:'/instructorMoreDetails/:id',
           element:<InstructorMoreDetails></InstructorMoreDetails>,
-          loader:({params}) => fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/instructorMoreDetails/${params.id}`)
+          loader:({params}) => fetch(`http://localhost:5000/instructorMoreDetails/${params.id}`)
         },
     
         {
@@ -104,7 +104,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
       {
         path:'updatedAClass/:id',
         element:<UpdateClass></UpdateClass>,
-        loader: ({params})=>fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/updatedClass/${params.id}`)
+        loader: ({params})=>fetch(`http://localhost:5000/updatedClass/${params.id}`)
         
       },
       {
@@ -118,12 +118,12 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
       {
         path: 'payment/:id',
         element:<Payment></Payment>,
-        loader:({params}) => fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/carts/${params.id}`)
+        loader:({params}) => fetch(`http://localhost:5000/carts/${params.id}`)
       },
       {
         path:'adminFeedback/:id',
         element:<AdminFeedback></AdminFeedback>,
-        loader:({params}) => fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/feedback/${params.id}`)
+        loader:({params}) => fetch(`http://localhost:5000/feedback/${params.id}`)
       },
      ]  
     }

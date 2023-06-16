@@ -8,7 +8,7 @@ const usePaymentHistory = () => {
         queryKey: ['paymentHistory', user?.email],
         // enabled: !loading,
         queryFn: async () => {
-            const res = await fetch(`https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/paymentHistory?email=${user?.email}`)
+            const res = await fetch(`http://localhost:5000/paymentHistory?email=${user?.email}`)
  
             return res.json();
         },

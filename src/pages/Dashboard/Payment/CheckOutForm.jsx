@@ -16,7 +16,7 @@ const CheckoutForm = ({ price, sportsClass }) => {
 
     useEffect(() => {
         //console.log('price', price)
-        fetch('https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/create-payment-intent', {
+        fetch('http://localhost:5000/create-payment-intent', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -96,7 +96,7 @@ const CheckoutForm = ({ price, sportsClass }) => {
                 instructorName: instructorName
 
             }
-            fetch('https://assignment12-united-sports-academy-server-sahrial-alam34.vercel.app/payments', {
+            fetch('http://localhost:5000/payments', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'
