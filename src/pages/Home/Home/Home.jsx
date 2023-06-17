@@ -5,6 +5,7 @@ import PopularInstructor from "../PopularInstructor/PopularInstructor";
 import Facility from "../Facility/Facility";
 import About from "../About/About";
 import Services from "../Services/Services";
+import History from "../History/History";
 
 
 
@@ -22,7 +23,9 @@ const Home = () => {
             <About></About>
             <PopularInstructor></PopularInstructor>
             <Services></Services>
+           
             <Facility></Facility>
+            <History></History>
             
             
         </>
